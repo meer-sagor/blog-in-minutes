@@ -8,7 +8,7 @@
     <div class="container flex justify-between items-center">
       <div class="flex items-center gap-space16">
         <NuxtImg src="/svg/brand-logo.svg" height="50" width="107"/>
-        <NuxtLink to="tel:+1 (628) 587-3235" class="flex items-center gap-space20 text-sm">
+        <NuxtLink to="tel:+1 (628) 587-3235" class="hidden sm:flex items-center gap-space20 text-sm">
           <span class="flex justify-center items-center size-space24 hover:bg-gray-300 hover:rounded-full transition rounded-full">
           <Icon name="lucide:phone-call" />
           </span>
@@ -16,7 +16,7 @@
         </NuxtLink>
       </div>
       <nav class="flex items-center gap-space16">
-        <p class="px-space12 py-space8 cursor-pointer hover:bg-gray-300 hover:rounded-full transition rounded-full font-semibold ">Top Vendors, Apply Now!</p>
+        <p class="hidden sm:block px-space12 py-space8 cursor-pointer hover:bg-gray-300 hover:rounded-full transition rounded-full font-semibold ">Top Vendors, Apply Now!</p>
         <DropdownMenu>
           <DropdownMenuTrigger>
             <div class="flex items-center py-space12 px-space20 rounded-full gap-space8 bg-gray-200  ">
