@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div>
-    <h1>Landing page</h1>
-    <NuxtWelcome />
+  <div class="space-y-space50">
+    <HeroSection/>
+    <PopularArticles/>
   </div>
 </template>
 

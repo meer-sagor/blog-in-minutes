@@ -19,6 +19,20 @@ module.exports = {
       },
     },
     extend: {
+      spacing: {
+        space5: "5px",
+        space8: "8px",
+        space12: "12px",
+        space16: "16px",
+        space20: "20px",
+        space24: "24px",
+        space28: "28px",
+        space30: "30px",
+        space32: "32px",
+        space34: "34px",
+        space40: "40px",
+        space50: "50px",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
