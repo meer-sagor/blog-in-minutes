@@ -4,7 +4,8 @@ const supabase = useSupabaseClient()
 
 
 const signOut = async () => {
-  const { error } = await supabase.auth.signOut()
+  const {  error } = await supabase.auth.signOut()
+  reloadNuxtApp()
   if (error) console.log(error)
 }
 </script>
@@ -15,7 +16,7 @@ const signOut = async () => {
     <div class="container flex justify-between items-center">
       <div class="flex items-center gap-space16">
         <NuxtLink to="/">
-          <NuxtImg src="/svg/brand-logo.svg" height="50" width="107"/>
+          <NuxtImg src="https://izjqwzjbvtzaqsjrbyle.supabase.co/storage/v1/object/public/events//brand-logo.svg" height="50" width="107"/>
         </NuxtLink>
         <NuxtLink to="tel:+1 (628) 587-3235" class="hidden sm:flex items-center gap-space20 text-sm">
           <span class="flex justify-center items-center size-space24 hover:bg-gray-300 hover:rounded-full transition rounded-full">

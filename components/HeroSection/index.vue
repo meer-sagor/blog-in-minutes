@@ -10,7 +10,7 @@
   </div>
   <div class="grid grid-cols-12 items-center rounded-[24px] overflow-hidden gap-space12 shadow">
     <div class="col-span-12 md:col-span-6">
-      <NuxtImg src="/images/hero-section/hero-feature.jpeg" class="min-w-[358px] w-full h-[413px] object-cover" alt="feature" />
+      <NuxtImg src="https://izjqwzjbvtzaqsjrbyle.supabase.co/storage/v1/object/public/events//hero-feature.jpeg" class="min-w-[358px] w-full h-[413px] object-cover" alt="feature" />
     </div>
 
     <div class="col-span-12 md:col-span-6 space-y-space16 p-space12">

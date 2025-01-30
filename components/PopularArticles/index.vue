@@ -108,8 +108,11 @@ defineProps<{
 <template>
   <section class="space-y-space28">
     <h3 class="text-[24px] font-bold leading-[33.6px]">Popular Articles</h3>
-    <div class="grid grid-cols-12 gap-space12">
-      <NuxtLink v-for="(article, i) in articles" :key="i" class="relative col-span-12 sm:col-span-6 md:col-span-4" :to="{
+
+    <PopularArticlesEmptyPlaceholder v-if="!articles.length" />
+
+    <div v-else class="grid grid-cols-12 gap-space12">
+      <NuxtLink v-for="(article, i) in articles" :key="i" class="relative col-span-12 sm:col-span-6 md:col-span-4 self-start" :to="{
         name: 'article-slug',
         params: {
           slug: article.id
@@ -132,7 +135,7 @@ defineProps<{
 
     </div>
 
-    <Button variant="outline" class="rounded-full">View More</Button>
+    <Button v-if="articles.length" variant="outline" class="rounded-full">View More</Button>
   </section>
 </template>
 

@@ -7,7 +7,7 @@
     <div class="container pt-space40 pb-space20">
       <div class="space-y-space32">
         <div class="sm:flex space-y-space12 sm:space-y-0 justify-between items-center">
-          <NuxtImg src="/svg/brand-logo.svg" height="50" width="107"/>
+          <NuxtImg src="https://izjqwzjbvtzaqsjrbyle.supabase.co/storage/v1/object/public/events//brand-logo.svg" height="50" width="107"/>
           <div>
             <p class="font-medium text-sm">Contact</p>
             <p class="text-sm text-gray-500 flex items-center gap-space12">

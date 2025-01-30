@@ -42,7 +42,7 @@ const columns = [
   }),
   columnHelper.accessor('event_type', {
     header: 'Type',
-    cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('event_type')),
+    cell: ({ row }) => h('div', row.getValue('event_type')),
   }),
   // columnHelper.accessor('action', {
   //   cell: ({ row }) => h('div', { class: 'lowercase' }),
@@ -79,6 +79,9 @@ const table = useVueTable({
       left: ['status'],
     },
   },
+})
+useSeoMeta({
+  title: 'Dashboard',
 })
 </script>
 

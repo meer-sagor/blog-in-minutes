@@ -2,11 +2,11 @@
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
-import {toast} from "~/components/ui/toast";
 
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 const haveAccount = ref(true)
+const processing = ref(false)
 
 const formSchema = toTypedSchema(z.object({
   email: z.string().email(),
@@ -19,22 +19,24 @@ const { handleSubmit } = useForm({
 
 const onSubmit = handleSubmit(async (values) => {
   const action = haveAccount.value ? 'signInWithPassword' : 'signUp';
+  processing.value = true
   const { data, error } = await supabase.auth[action]({
     email: values.email,
     password: values.password,
   });
 
-  if (data) return navigateTo('/dashboard');
-
-  toast({
-    title: error?.message ?? 'Failed',
-    description: h(
-        'pre',
-        { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' },
-        h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))
-    ),
-  });
+  if (data) {
+    processing.value = false
+    navigateTo('/dashboard');
+  }
+  if (error) {
+    processing.value = false
+  }
 });
+
+useSeoMeta({
+  title: 'Login',
+})
 </script>
 
 <template>
@@ -62,9 +64,13 @@ const onSubmit = handleSubmit(async (values) => {
           <FormMessage />
         </FormItem>
       </FormField>
-      <Button type="submit">
-        Submit
-      </Button>
+      <div class="flex items-center justify-center w-full">
+        <Button type="submit" :disabled="processing" class="text-center">
+          <Icon v-if="processing" name="lucide:loader-circle" class="animate-spin"/>
+          Submit
+        </Button>
+      </div>
+
     </form>
     <p class="text-sm" @click="haveAccount = !haveAccount">
       {{!haveAccount ? "have an account " : "Don't have an account"}}

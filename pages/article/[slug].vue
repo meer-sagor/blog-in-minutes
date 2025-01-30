@@ -14,6 +14,12 @@ const {data:articleDetails, error, pending} = await useAsyncData(`article-${rout
   return data
 })
 
+const ogTitle = computed(()=> articleDetails.value?.title ?? 'Article Details')
+
+useSeoMeta({
+  title: ogTitle.value,
+})
+
 </script>
 
 <template>
