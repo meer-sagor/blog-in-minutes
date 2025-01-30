@@ -10,6 +10,9 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false
   },
+  image:{
+    provider: 'ipx'
+  },
   experimental:{
     typedPages: true
   }
