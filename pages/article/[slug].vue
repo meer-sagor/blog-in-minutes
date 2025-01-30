@@ -1,75 +1,41 @@
 <script setup lang="ts">
 const route = useRoute('article-slug')
-const articleDetails = ref({
-  id: Math.random().toString(),
-  media: 'images/hero-section/hero-feature.jpeg',
-  published_date: '08.08.2021',
-  title: 'Top Trends in Corporate Event Design and Engagement',
-  description: 'Progressively incentivize cooperative systems through\n' +
-      'technically sound functionalities. Credibly productivate\n' +
-      'seamless data with flexible schemas.',
-  event_type: "EVENT PLANNING TIPS"
+const supabase = useSupabaseClient()
+
+const {data:articles} = await useAsyncData('related-aricle', async()=>{
+  const {data} = await supabase.from('articles').select()
+  return data
+}, {
+  lazy: true
 })
-const articles = ref([
-  {
-    id: Math.random().toString(),
-    media: 'images/hero-section/hero-feature.jpeg',
-    published_date: '08.08.2021',
-    title: 'Top Trends in Corporate Event Design and Engagement',
-    description: 'Progressively incentivize cooperative systems through\n' +
-        'technically sound functionalities. Credibly productivate\n' +
-        'seamless data with flexible schemas.',
-    event_type: "EVENT PLANNING TIPS"
-  },
-  {
-    id: Math.random().toString(),
-    media: 'images/hero-section/hero-feature.jpeg',
-    published_date: '08.08.2021',
-    title: 'Top Trends in Corporate Event Design and Engagement',
-    description: 'Progressively incentivize cooperative systems through\n' +
-        'technically sound functionalities. Credibly productivate\n' +
-        'seamless data with flexible schemas.',
-    event_type: "EVENT PLANNING TIPS"
-  },
-  {
-    id: Math.random().toString(),
-    media: 'images/hero-section/hero-feature.jpeg',
-    published_date: '08.08.2021',
-    title: 'Top Trends in Corporate Event Design and Engagement',
-    description: 'Progressively incentivize cooperative systems through\n' +
-        'technically sound functionalities. Credibly productivate\n' +
-        'seamless data with flexible schemas.',
-    event_type: "EVENT PLANNING TIPS"
-  },
-  {
-    id: Math.random().toString(),
-    media: 'images/hero-section/hero-feature.jpeg',
-    published_date: '08.08.2021',
-    title: 'Top Trends in Corporate Event Design and Engagement',
-    description: 'Progressively incentivize cooperative systems through\n' +
-        'technically sound functionalities. Credibly productivate\n' +
-        'seamless data with flexible schemas.',
-    event_type: "EVENT PLANNING TIPS"
-  },
-  {
-    id: Math.random().toString(),
-    media: 'images/hero-section/hero-feature.jpeg',
-    published_date: '08.08.2021',
-    title: 'Top Trends in Corporate Event Design and Engagement',
-    description: 'Progressively incentivize cooperative systems through\n' +
-        'technically sound functionalities. Credibly productivate\n' +
-        'seamless data with flexible schemas.',
-    event_type: "EVENT PLANNING TIPS"
-  }
-])
+
+const {data:articleDetails, error, pending} = await useAsyncData(`article-${route.params.slug}`, async()=>{
+  const {data} = await supabase.from('articles').select().eq('id', route.params.slug).single()
+  return data
+})
+
 </script>
 
 <template>
+  <NuxtLink to="/" class="inline-flex items-center gap-space12 hover:bg-gray-200 p-space8 rounded-md mb-space16">
+    <Icon name="lucide:arrow-left"/>
+    Back
+  </NuxtLink>
+
   <section class="grid grid-cols-12 gap-space20">
     <div class="col-span-12 md:col-span-9">
-      <Card>
-        <NuxtImg :src="articleDetails.media" height="280" class="rounded-[12px] w-full object-cover" />
-        <Badge class="absolute top-0 right-space20" variant="secondary">{{articleDetails.event_type}}</Badge>
+      <div v-if="pending" class="w-full">
+        <Card class="p-space12">
+          <Skeleton class="h-[280px] w-full rounded-xl" />
+          <div class="space-y-2">
+            <Skeleton class="h-4 w-[250px]" />
+            <Skeleton class="h-4 w-[200px]" />
+          </div>
+        </Card>
+      </div>
+      <Card v-if="!pending && articleDetails" class="border-none">
+        <NuxtImg :src="articleDetails.media" height="280" class="rounded-[12px] h-[280px] w-full object-cover" />
+        <Badge variant="secondary">{{articleDetails.event_type}}</Badge>
         <CardDescription>{{articleDetails.published_date}}</CardDescription>
         <CardHeader>
           <CardTitle class="leading-[25.6px]">{{articleDetails.title}}</CardTitle>

@@ -1,5 +1,12 @@
 <script setup lang="ts">
+const user = useSupabaseUser()
+const supabase = useSupabaseClient()
 
+
+const signOut = async () => {
+  const { error } = await supabase.auth.signOut()
+  if (error) console.log(error)
+}
 </script>
 
 <template>
@@ -7,7 +14,9 @@
   <header class="shadow py-[16px]">
     <div class="container flex justify-between items-center">
       <div class="flex items-center gap-space16">
-        <NuxtImg src="/svg/brand-logo.svg" height="50" width="107"/>
+        <NuxtLink to="/">
+          <NuxtImg src="/svg/brand-logo.svg" height="50" width="107"/>
+        </NuxtLink>
         <NuxtLink to="tel:+1 (628) 587-3235" class="hidden sm:flex items-center gap-space20 text-sm">
           <span class="flex justify-center items-center size-space24 hover:bg-gray-300 hover:rounded-full transition rounded-full">
           <Icon name="lucide:phone-call" />
@@ -19,7 +28,7 @@
         <p class="hidden sm:block px-space12 py-space8 cursor-pointer hover:bg-gray-300 hover:rounded-full transition rounded-full font-semibold ">Top Vendors, Apply Now!</p>
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <div class="flex items-center py-space12 px-space20 rounded-full gap-space8 bg-gray-200  ">
+            <div class="flex items-center py-space12 px-space20 rounded-full gap-space8 bg-gray-100  ">
               <Icon name="lucide:menu" class="text-[30px]" />
               <div class="bg-white size-[40px] rounded-full flex items-center justify-center">
                 <Icon name="lucide:user-round" class="text-[30px]"/>
@@ -29,7 +38,9 @@
           <DropdownMenuContent>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem class="cursor-pointer" v-if="!user" @click="navigateTo('/auth')">Login</DropdownMenuItem>
+            <DropdownMenuItem class="cursor-pointer" v-else @click="navigateTo('/dashboard')">Profile</DropdownMenuItem>
+            <DropdownMenuItem class="cursor-pointer" v-if="user"  @click="signOut">Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </nav>

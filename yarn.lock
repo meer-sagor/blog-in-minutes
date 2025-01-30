@@ -1308,10 +1308,22 @@
   dependencies:
     tslib "^2.8.0"
 
+"@tanstack/table-core@8.20.5":
+  version "8.20.5"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.20.5.tgz#3974f0b090bed11243d4107283824167a395cf1d"
+  integrity sha512-P9dF7XbibHph2PFRz8gfBKEXEY/HJPOhym8CHmjF8y3q5mWpKx9xtZapXQUWCgkqvsK0R46Azuz+VaxD4Xl+Tg==
+
 "@tanstack/virtual-core@3.11.3":
   version "3.11.3"
   resolved "https://registry.npmjs.org/@tanstack/virtual-core/-/virtual-core-3.11.3.tgz"
   integrity sha512-v2mrNSnMwnPJtcVqNvV0c5roGCBqeogN8jDtgtuHCphdwBasOZ17x8UV8qpHUh+u0MLfX43c0uUHKje0s+Zb0w==
+
+"@tanstack/vue-table@^8.20.5":
+  version "8.20.5"
+  resolved "https://registry.yarnpkg.com/@tanstack/vue-table/-/vue-table-8.20.5.tgz#4564574a95900c8e014659c15d138154d7730942"
+  integrity sha512-2xixT3BEgSDw+jOSqPt6ylO/eutDI107t2WdFMVYIZZ45UmTHLySqNriNs0+dMaKR56K5z3t+97P6VuVnI2L+Q==
+  dependencies:
+    "@tanstack/table-core" "8.20.5"
 
 "@tanstack/vue-virtual@^3.8.1":
   version "3.11.3"
@@ -1417,6 +1429,14 @@
     "@unhead/shared" "1.11.18"
     hookable "^5.5.3"
     unhead "1.11.18"
+
+"@vee-validate/zod@^4.15.0":
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/@vee-validate/zod/-/zod-4.15.0.tgz#2de193da114eda9f873b5a677f13c23bcecb58aa"
+  integrity sha512-MpvIKiyg9X5yD8bJW0no2AU7wtR2T5mrvD9tuPRiie951sU2n6QKgMV38qKKOiqFBCxsMSjIuLLLV3V5kVE4nQ==
+  dependencies:
+    type-fest "^4.8.3"
+    vee-validate "4.15.0"
 
 "@vercel/nft@^0.27.5":
   version "0.27.10"
@@ -1541,6 +1561,13 @@
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.6.4.tgz"
   integrity sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==
 
+"@vue/devtools-api@^7.5.2":
+  version "7.7.1"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-7.7.1.tgz#6a44bf03ce27ba0230461171812d9ae98aeb2458"
+  integrity sha512-Cexc8GimowoDkJ6eNelOPdYIzsu2mgNyp0scOQ3tiaYSb9iok6LOESSsJvHaI+ib3joRfqRJNLkHFjhNuWA5dg==
+  dependencies:
+    "@vue/devtools-kit" "^7.7.1"
+
 "@vue/devtools-core@7.6.8":
   version "7.6.8"
   resolved "https://registry.npmjs.org/@vue/devtools-core/-/devtools-core-7.6.8.tgz"
@@ -1566,7 +1593,7 @@
     speakingurl "^14.0.1"
     superjson "^2.2.1"
 
-"@vue/devtools-kit@^7.6.8":
+"@vue/devtools-kit@^7.6.8", "@vue/devtools-kit@^7.7.1":
   version "7.7.1"
   resolved "https://registry.npmjs.org/@vue/devtools-kit/-/devtools-kit-7.7.1.tgz"
   integrity sha512-yhZ4NPnK/tmxGtLNQxmll90jIIXdb2jAhPF76anvn5M/UkZCiLJy28bYgPIACKZ7FCosyKoaope89/RsFJll1w==
@@ -1634,10 +1661,25 @@
     "@vueuse/shared" "10.11.1"
     vue-demi ">=0.14.8"
 
+"@vueuse/core@^12.5.0":
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-12.5.0.tgz#1321c75132c4f20f223e6313587ebeeec79957f2"
+  integrity sha512-GVyH1iYqNANwcahAx8JBm6awaNgvR/SwZ1fjr10b8l1HIgDp82ngNbfzJUgOgWEoxjL+URAggnlilAEXwCOZtg==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.20"
+    "@vueuse/metadata" "12.5.0"
+    "@vueuse/shared" "12.5.0"
+    vue "^3.5.13"
+
 "@vueuse/metadata@10.11.1":
   version "10.11.1"
   resolved "https://registry.npmjs.org/@vueuse/metadata/-/metadata-10.11.1.tgz"
   integrity sha512-IGa5FXd003Ug1qAZmyE8wF3sJ81xGLSqTqtQ6jaVfkeZ4i5kS2mwQF61yhVqojRnenVew5PldLyRgvdl4YYuSw==
+
+"@vueuse/metadata@12.5.0":
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-12.5.0.tgz#8f1778a2894bdda2bf458054377a379d40276306"
+  integrity sha512-Ui7Lo2a7AxrMAXRF+fAp9QsXuwTeeZ8fIB9wsLHqzq9MQk+2gMYE2IGJW48VMJ8ecvCB3z3GsGLKLbSasQ5Qlg==
 
 "@vueuse/shared@10.11.1", "@vueuse/shared@^10.11.0":
   version "10.11.1"
@@ -1645,6 +1687,13 @@
   integrity sha512-LHpC8711VFZlDaYUXEBbFBCQ7GS3dVU9mjOhhMhXP6txTV4EhYQg/KGnQuvt/sPAtoUKq7VVUnL6mVtFoL42sA==
   dependencies:
     vue-demi ">=0.14.8"
+
+"@vueuse/shared@12.5.0":
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-12.5.0.tgz#b93af7ab0fd6a8d879808c9bf37d540dac01da13"
+  integrity sha512-vMpcL1lStUU6O+kdj6YdHDixh0odjPAUM15uJ9f7MY781jcYkIwFA4iv2EfoIPO6vBmvutI1HxxAwmf0cx5ISQ==
+  dependencies:
+    vue "^3.5.13"
 
 abbrev@^3.0.0:
   version "3.0.0"
@@ -5664,7 +5713,7 @@ type-fest@^0.21.3:
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.21.3.tgz"
   integrity sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==
 
-type-fest@^4.18.2, type-fest@^4.7.1:
+type-fest@^4.18.2, type-fest@^4.7.1, type-fest@^4.8.3:
   version "4.33.0"
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-4.33.0.tgz"
   integrity sha512-s6zVrxuyKbbAsSAD5ZPTB77q4YIdRctkTbJ2/Dqlinwz+8ooH2gd+YA7VA6Pa93KML9GockVvoxjZ2vHP+mu8g==
@@ -5900,6 +5949,14 @@ vary@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+vee-validate@4.15.0, vee-validate@^4.15.0:
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.15.0.tgz#eb77a9c867669d34abbc33ca5e16f2a991eb7ad5"
+  integrity sha512-PGJh1QCFwCBjbHu5aN6vB8macYVWrajbDvgo1Y/8fz9n/RVIkLmZCJDpUgu7+mUmCOPMxeyq7vXUOhbwAqdXcA==
+  dependencies:
+    "@vue/devtools-api" "^7.5.2"
+    type-fest "^4.8.3"
 
 vite-hot-client@^0.2.4:
   version "0.2.4"
@@ -6191,3 +6248,8 @@ zip-stream@^6.0.1:
     archiver-utils "^5.0.0"
     compress-commons "^6.0.2"
     readable-stream "^4.0.0"
+
+zod@^3.24.1:
+  version "3.24.1"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.24.1.tgz#27445c912738c8ad1e9de1bea0359fa44d9d35ee"
+  integrity sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==
