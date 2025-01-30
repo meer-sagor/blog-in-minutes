@@ -1,101 +1,11 @@
 <script setup lang="ts">
-// const articles = ref([
-//     {
-//       id: Math.random().toString(),
-//   media: 'images/hero-section/hero-feature.jpeg',
-//   published_date: '08.08.2021',
-//   title: 'Top Trends in Corporate Event Design and Engagement',
-//   description: 'Progressively incentivize cooperative systems through\n' +
-//       'technically sound functionalities. Credibly productivate\n' +
-//       'seamless data with flexible schemas.',
-//       event_type: "EVENT PLANNING TIPS"
-// },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "EVENT PLANNING TIPS"
-//   },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "EVENT PLANNING TIPS"
-//   },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "EVENT PLANNING TIPS"
-//   },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "EVENT PLANNING TIPS"
-//   },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "EVENT PLANNING TIPS"
-//   },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "PLANNING TIPS"
-//   },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "EVENT PLANNING TIPS"
-//   },
-//   {
-//     id: Math.random().toString(),
-//     media: 'images/hero-section/hero-feature.jpeg',
-//     published_date: '08.08.2021',
-//     title: 'Top Trends in Corporate Event Design and Engagement',
-//     description: 'Progressively incentivize cooperative systems through\n' +
-//         'technically sound functionalities. Credibly productivate\n' +
-//         'seamless data with flexible schemas.',
-//     event_type: "EVENT PLANNING TIPS"
-//   }
-//
-// ])
+
+import {formatDate} from "~/utils";
+
 export interface Articles {
   id: string
   media: string
-  published_date: string
+  created_at: string
   title: string
   description: string
   event_type: string
@@ -121,8 +31,8 @@ defineProps<{
         <Card>
           <NuxtImg :src="article.media" height="280" class="rounded-[12px] h-[280px] w-full object-cover" />
           <Badge class="absolute top-0 right-space20" variant="secondary">{{article.event_type}}</Badge>
-          <div class="p-space12">
-            <CardDescription>{{article.published_date}}</CardDescription>
+          <div class="p-space12 pt-0">
+            <CardDescription>{{formatDate(article.created_at)}}</CardDescription>
             <CardHeader>
               <CardTitle class="leading-[25.6px]">{{article.title}}</CardTitle>
             </CardHeader>

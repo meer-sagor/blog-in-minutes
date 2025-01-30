@@ -42,7 +42,7 @@ useSeoMeta({
       <Card v-if="!pending && articleDetails" class="border-none">
         <NuxtImg :src="articleDetails.media" height="280" class="rounded-[12px] h-[280px] w-full object-cover" />
         <Badge variant="secondary">{{articleDetails.event_type}}</Badge>
-        <CardDescription>{{articleDetails.published_date}}</CardDescription>
+        <CardDescription>{{formatDate(articleDetails.created_at)}}</CardDescription>
         <CardHeader>
           <CardTitle class="leading-[25.6px]">{{articleDetails.title}}</CardTitle>
         </CardHeader>
@@ -60,10 +60,10 @@ useSeoMeta({
         }
       }" class="relative block">
         <Card class="space-y-space5 border rounded-md ">
-          <NuxtImg :src="article.media" height="80" class="rounded-[8px] w-full object-cover" />
+          <NuxtImg :src="article.media" height="80" class="rounded-[8px] w-full h-[184px] object-cover" />
           <Badge class="absolute top-space5 right-space12" variant="secondary">{{article.event_type}}</Badge>
-          <div class="p-space16">
-            <CardDescription>{{article.published_date}}</CardDescription>
+          <div class="p-space16 pt-0">
+            <CardDescription>{{formatDate(article.created_at)}}</CardDescription>
             <CardHeader>
               <CardTitle class="leading-[25.6px]">{{article.title}}</CardTitle>
             </CardHeader>

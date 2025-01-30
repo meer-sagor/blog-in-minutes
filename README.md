@@ -6,8 +6,8 @@
 - Secure routes that require authentication for access
 - **Authentication**
 - Login & Signup feature
-- Inside dashboard, show created article list
-- Create article with file upload
+- Inside the dashboard, show the created article list
+- Create an article with a file upload
 - List all articles on the landing page
 - Dynamic route for article details pages
 - Implement SEO in Open Graph
